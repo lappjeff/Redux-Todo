@@ -8,7 +8,7 @@ const TodoList = props => {
   return (
     <ListContainer>
       <h3>Todo's</h3>
-      {props.todos.map(todo => <ListItem>{todo.value}</ListItem>)}
+      {props.todos.map((todo, index) => <ListItem key={index}>{todo.value}</ListItem>)}
     </ListContainer>
   )
 }
