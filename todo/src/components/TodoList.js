@@ -2,6 +2,8 @@ import React from 'react'
 
 import { ListContainer, ListItem } from './S_TodoList'
 
+import { connect } from 'react-redux'
+
 const TodoList = props => {
   return (
     <ListContainer>
@@ -10,4 +12,10 @@ const TodoList = props => {
   )
 }
 
-export default TodoList
+const mapStateToProps = state => {
+  return {
+    todos: state.todos
+  }
+}
+
+export default connect(mapStateToProps, {})(TodoList)
