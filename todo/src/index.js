@@ -5,4 +5,6 @@ import App from './App';
 
 import { createStore } from 'redux'
 
+const store = createStore(reducer)
+
 ReactDOM.render(<App />, document.getElementById('root'));
