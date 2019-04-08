@@ -17,7 +17,10 @@ const ListContainer = styled.div `
 const ListItem = styled.li `
   margin: 20px auto;
   text-align: center;
-  border-bottom: 1px solid white;
+  border-bottom: 1.3px solid white;
+  height: 40px;
+  width: 90%;
+  font-size: 23px;
 `
 
 export { ListContainer, ListItem }

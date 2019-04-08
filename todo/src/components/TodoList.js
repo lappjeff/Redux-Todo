@@ -8,6 +8,7 @@ const TodoList = props => {
   return (
     <ListContainer>
       <h3>Todo's</h3>
+      {props.todos.map(todo => <ListItem>{todo.value}</ListItem>)}
     </ListContainer>
   )
 }
