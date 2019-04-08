@@ -6,18 +6,29 @@ import { FormContainer, Form } from './S_TodoForm'
 
 const TodoForm = props => {
 
-  const [newTodo, setNewTodo] = useState('')
+  const [value, setValue] = useState('')
 
-  const handleChanges = e => {
-    setNewTodo(e.target.value)
+  const newTodo = {
+    value: value,
+    completed: false
   }
-  
+  const handleChanges = e => {
+    setValue(e.target.value)
+  }
+
+  const submitTodo = e => {
+    e.preventDefault();
+    props.addTodo(newTodo)
+
+    setValue('')
+  }
+
   return (
     <FormContainer>
-      <Form>
+      <Form onSubmit={submitTodo}>
         <input
           name='newTodo'
-          value={newTodo}
+          value={value}
           type='text'
           placeholder='Enter New Todo'
           onChange={(e) => handleChanges(e)}
@@ -28,4 +39,4 @@ const TodoForm = props => {
   );
 }
 
-export default TodoForm
+export default connect(null, { addTodo })(TodoForm)
