@@ -8,17 +8,14 @@ const TodoForm = props => {
 
   const [value, setValue] = useState('')
 
-  const newTodo = {
-    value: value,
-    completed: false
-  }
+
   const handleChanges = e => {
     setValue(e.target.value)
   }
 
   const submitTodo = e => {
     e.preventDefault();
-    props.addTodo(newTodo)
+    props.addTodo(value)
 
     setValue('')
   }

@@ -32,6 +32,7 @@ const Form = styled.form `
     text-align: center;
     background: #428bca;
     font-size: 16px;
+    color: white;
     &::placeholder {
       color: white;
     }

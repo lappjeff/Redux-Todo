@@ -10,15 +10,26 @@ const initialState = {
 }
 
 const reducer = (state = initialState, action) => {
-  console.log(state)
   switch(action.type) {
+
     case ADD_TODO:
       return {
         todos: [
           ...state.todos,
-          action.payload
+          {
+            value: action.payload,
+            completed: false
+          }
         ]
       }
+    case TOGGLE_TODO:
+      console.log(action.payload[action.id])
+      return {
+        todos: [
+          ...state.todos
+        ]
+      }
+
     default:
       return state;
   }
