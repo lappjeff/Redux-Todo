@@ -15,10 +15,10 @@ const toggleTodo =  id => {
 }
 
 const REMOVE_TODO = 'REMOVE_TODO'
-const removeTodo = todo => {
+const removeTodo = id => {
   return {
     type: REMOVE_TODO,
-    payload: todo
+    payload: id
   }
 }
 export {

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { ListContainer, ListItem } from './S_TodoList'
-import { toggleTodo } from '../actions'
+import { toggleTodo, removeTodo } from '../actions'
 
 import { connect } from 'react-redux'
 
@@ -14,14 +14,14 @@ const TodoList = props => {
             return (
               <div key={todo.id}>
                 <span>X</span>
-                <ListItem  className='completed' onClick={() => props.toggleTodo(todo.id)}>{todo.value} </ListItem> 
+                <ListItem  className='completed' onClick={() => props.toggleTodo(todo.id)}>{todo.value} </ListItem>
               </div>
             )
 
           } else {
             return (
               <div key={todo.id}>
-                <span>X</span>
+                <span onClick={() => props.removeTodo(todo.id)}>X</span>
                 <ListItem  onClick={() => props.toggleTodo(todo.id)}>{todo.value}</ListItem>
               </div>
             )
@@ -38,4 +38,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { toggleTodo })(TodoList)
+export default connect(mapStateToProps, { toggleTodo, removeTodo })(TodoList)

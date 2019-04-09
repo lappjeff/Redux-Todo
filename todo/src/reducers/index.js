@@ -1,8 +1,8 @@
-import { ADD_TODO, TOGGLE_TODO } from '../actions'
+import { ADD_TODO, TOGGLE_TODO, REMOVE_TODO } from '../actions'
 
 let id = 0
 
-const setId = () => {
+const setId = action => {
   return id++
 }
 
@@ -31,9 +31,11 @@ const reducer = (state = initialState, action) => {
 
       let changedTodo = state.map(todo => (todo.id === action.payload) ? {...todo, completed: !todo.completed} : todo)
 
-      return changedTodo
+      return changedTodo;
 
-
+    case REMOVE_TODO:
+      console.log(action.payload)
+      return state.filter(todo => todo.id !== action.payload)
     default:
       return state;
   }
