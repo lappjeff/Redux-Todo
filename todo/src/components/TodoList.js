@@ -9,14 +9,32 @@ const TodoList = props => {
   return (
     <ListContainer>
       <h3>Todo's</h3>
-      {props.todos.map((todo, index) => <ListItem key={index} onClick={() => props.toggleTodo(props.todos, index)}>{todo.value}</ListItem>)}
+      {props.todos.map(todo => {
+          if (todo.completed === true) {
+            return (
+              <div key={todo.id}>
+                <span>X</span>
+                <ListItem  className='completed' onClick={() => props.toggleTodo(todo.id)}>{todo.value} </ListItem> 
+              </div>
+            )
+
+          } else {
+            return (
+              <div key={todo.id}>
+                <span>X</span>
+                <ListItem  onClick={() => props.toggleTodo(todo.id)}>{todo.value}</ListItem>
+              </div>
+            )
+          }
+        }
+      )}
     </ListContainer>
   )
 }
 
 const mapStateToProps = state => {
   return {
-    todos: state.todos
+    todos: state
   }
 }
 

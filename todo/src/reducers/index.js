@@ -1,34 +1,38 @@
 import { ADD_TODO, TOGGLE_TODO } from '../actions'
 
-const initialState = {
-  todos: [
+let id = 0
+
+const setId = () => {
+  return id++
+}
+
+const initialState = [
     {
       value: 'Walk the dog',
-      completed: false
+      completed: false,
+      id: setId()
     }
-  ]
-}
+]
 
 const reducer = (state = initialState, action) => {
   switch(action.type) {
 
     case ADD_TODO:
-      return {
-        todos: [
-          ...state.todos,
+      return [
+          ...state,
           {
             value: action.payload,
-            completed: false
+            completed: false,
+            id: setId()
           }
-        ]
-      }
+
+      ]
     case TOGGLE_TODO:
-      console.log(action.payload[action.id])
-      return {
-        todos: [
-          ...state.todos
-        ]
-      }
+
+      let changedTodo = state.map(todo => (todo.id === action.payload) ? {...todo, completed: !todo.completed} : todo)
+
+      return changedTodo
+
 
     default:
       return state;

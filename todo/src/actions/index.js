@@ -1,6 +1,4 @@
 const ADD_TODO = 'ADD_TODO'
-const TOGGLE_TODO = 'TOGGLE_TODO'
-
 const addTodo = todo => {
   return {
     type: ADD_TODO,
@@ -8,11 +6,26 @@ const addTodo = todo => {
   }
 }
 
-const toggleTodo = (todos, id) => {
+const TOGGLE_TODO = 'TOGGLE_TODO'
+const toggleTodo =  id => {
   return {
     type: TOGGLE_TODO,
-    payload: todos, id
+    payload: id
   }
 }
 
-export { ADD_TODO, TOGGLE_TODO, addTodo, toggleTodo }
+const REMOVE_TODO = 'REMOVE_TODO'
+const removeTodo = todo => {
+  return {
+    type: REMOVE_TODO,
+    payload: todo
+  }
+}
+export {
+  ADD_TODO,
+  TOGGLE_TODO,
+  REMOVE_TODO,
+  addTodo,
+  toggleTodo,
+  removeTodo
+}

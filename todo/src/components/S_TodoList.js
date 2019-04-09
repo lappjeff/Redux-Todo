@@ -12,15 +12,34 @@ const ListContainer = styled.div `
     margin: 20px;
     border-bottom: 1.5px solid white;
   }
+
+  div {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-around;
+    width: 90%;
+    height: 50px;
+    margin: 20px auto;
+    border-bottom: 1.3px solid white;
+
+    span {
+      cursor: pointer;
+    }
+
+    .completed {
+      text-decoration: line-through;
+    }
+  }
+
+
+
+  }
 `
 
 const ListItem = styled.li `
-  margin: 20px auto;
-  text-align: center;
-  border-bottom: 1.3px solid white;
-  height: 40px;
-  width: 90%;
   font-size: 23px;
+
+
 `
 
 export { ListContainer, ListItem }
