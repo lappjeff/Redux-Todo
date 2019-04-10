@@ -13,7 +13,7 @@ const TodoList = props => {
           if (todo.completed === true) {
             return (
               <div key={todo.id}>
-                <span>X</span>
+                <span onClick={() => props.removeTodo(todo.id)}>X</span>
                 <ListItem  className='completed' onClick={() => props.toggleTodo(todo.id)}>{todo.value} </ListItem>
               </div>
             )
