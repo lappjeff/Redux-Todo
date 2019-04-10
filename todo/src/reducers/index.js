@@ -2,7 +2,7 @@ import { ADD_TODO, TOGGLE_TODO, REMOVE_TODO } from '../actions'
 
 let id = 0
 
-const setId = action => {
+const setId = () => {
   return id++
 }
 
