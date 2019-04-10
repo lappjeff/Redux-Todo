@@ -8,11 +8,6 @@ const TodoForm = props => {
 
   const [value, setValue] = useState('')
 
-
-  const handleChanges = e => {
-    setValue(e.target.value)
-  }
-
   const submitTodo = e => {
     e.preventDefault();
     props.addTodo(value)
@@ -28,7 +23,7 @@ const TodoForm = props => {
           value={value}
           type='text'
           placeholder='Enter New Todo'
-          onChange={(e) => handleChanges(e)}
+          onChange={e => setValue(e.target.value)}
         />
         <button type='submit'>Add Todo</button>
       </Form>
