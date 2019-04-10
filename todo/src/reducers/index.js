@@ -29,9 +29,7 @@ const reducer = (state = initialState, action) => {
       ]
     case TOGGLE_TODO:
 
-      let changedTodo = state.map(todo => (todo.id === action.payload) ? {...todo, completed: !todo.completed} : todo)
-
-      return changedTodo;
+      return state.map(todo => (todo.id === action.payload) ? {...todo, completed: !todo.completed} : todo);
 
     case REMOVE_TODO:
       console.log(action.payload)
